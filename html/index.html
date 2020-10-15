@@ -15,14 +15,14 @@
         <h1 class="effect-title">TRIVIA APP <i class="fas fa-gamepad "></i></h1>
     </header>
     <main class="container">
-        <section class="help hide">
+        <section class="help">
             <p>¡Bienvenidos a Trivia App! <br>
                 Diviértete respondiendo preguntas de una categoría!</p>
         </section>
-        <section class="start-name hide">
+        <section class="start-name ">
             <p class="text">Por favor ingrese su nombre</p>
-            <input class="name" type="text">
-            <input class="button" type="button" value="INGRESAR">
+            <input class="name" type="text" maxlength="35">
+            <input class="button-name" type="button" value="INGRESAR">
         </section>
         <section class="categories hide">
             <div class="images ">
@@ -35,15 +35,14 @@
                 <p class="categories-text"> Películas</p>
             </div>
         </section>
-        <section class="questions">
+        <section class="questions hide">
             <div class="body-question">
                 <p class="question">Texto según categoría</p>
                 <div class="answers">
-                    <p>Texto por categoría</p>
-                    <p>Texto por categoría</p>
-                    <p>Texto por categoría</p>
-                    <p>Texto por categoría</p>
+                    <p class="answer">Texto por categoría</p>
                 </div>
+                
+            <input class="button-answers" type="button" value="Siguiente">
             </div>
         </section>
     </main>
