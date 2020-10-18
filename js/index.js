@@ -6,12 +6,16 @@ const startName = document.querySelector(".start-name")
 const help = document.querySelector(".help")
 const questions = document.querySelector(".questions")
 const questionTitle = document.querySelector(".question")
-const answer = document.querySelector(".answer")
-const imageCategories = document.querySelector(".images")
-
+const answers = document.querySelector(".answers")
+const imageCategories = document.querySelectorAll(".images")
+const next = document.querySelector(".button-answers")
+const point = document.querySelector(".number-point")
+const namePoint = document.querySelector(".name-point")
+const finalScore = document.querySelector(".final-points")
+const Back = document.querySelector(".return")
+console.log(textName);
 let nombreUsuario;
 buttonName.addEventListener("click" ,function(){
-    
     if (textName.value == '') {
         alert("Por favor no deje espacios en blanco en su nombre")
     }else{
@@ -27,40 +31,65 @@ buttonName.addEventListener("click" ,function(){
     categories.classList.remove("hide");
  }
 
- imageCategories.addEventListener("click", function(){
-    if (categoriesText.classList.contains ="Películas") {
-        ShowQuestions(1);
-    }else if(categoriesText.classList.contains ="Deportes"){
-        ShowQuestions(2);
-    }
+ imageCategories[0].addEventListener("click", function(){
+            ShowQuestions(1,0);
  })
-
- function ShowQuestions(categorie){
+ imageCategories[1].addEventListener("click", function(){
+    ShowQuestions(2,0);
+})
+ function ShowQuestions(categorie, i){
     categories.classList.add("hide");
     questions.classList.remove("hide");
-    if (categorie == 1) {
-        console.log(question)
-        questionTitle.innerText = question[0].question;
-        question[0].answers.forEach(respuesta => {
-            console.log(respuesta);
-         answer.innerText = question[1].text;
-            if (answer.correct) {
-                button.dataset.correct = answer.correct
-            }
+    if (categorie === 1) {
+        questionTitle.innerText = questionSports[i].question;
+        let container = "";
+        (questionSports[i].answers).forEach(respuesta => {
+            container += `
+            <p class="answer" onclick="CountPoints(${categorie}, ${respuesta.correct}, ${i})"> ${respuesta.text}</p>`
         });
+        answers.innerHTML = container;
+        i++;
+   } else if(categorie === 2){
+        questionTitle.innerText = questionMovies[i].question;
+        let container = "";
+        (questionMovies[i].answers).forEach(respuesta => {
+            container += `
+            <p class="answer" onclick="CountPoints(${categorie}, ${respuesta.correct}, ${i})"> ${respuesta.text}</p>`
+        });
+        answers.innerHTML = container;
+        i++
      }
  }
-//Preguntas para categoria Deportes
-let QuestionsSports = new Object();
-QuestionsSports.First = '¿Quién fue el boxeador más joven de la historia en conseguir un título mundial de los pesos pesados?';
-QuestionsSports.Second = '¿En qué equipo jugó Carles Puyol durante su carrera como futbolista?';
-QuestionsSports.Third = '¿Qué jugador de fútbol ha ganado más copas del mundo?';
-QuestionsSports.Four = '¿A quién se otorga el Balón de Oro?';
-//Primera pregunta
 
+ 
+ let puntaje = 0, puntajeTotal = 0;
 
+ function CountPoints(categorie, respuesta, index){
+    console.log(categorie, respuesta, index)
+        if (respuesta) {
+            puntaje = puntaje + 10;
+        }
+        index++;
+        if (index<4) {
+            ShowQuestions(categorie, index);
+        }else {
+            questions.classList.add("hide");
+            finalScore.classList.remove("hide");
+            namePoint.innerHTML = "!Felicidades! <br>"
+            point.innerHTML = nombreUsuario + " obtuviste una puntuación de " + puntaje + " espero te allas divertido. :)";
+            index = 0;
+            puntaje = 0;
+            nombreUsuario = "";
+        }
+ }
 
-const question = [
+ Back.addEventListener("click", function(){
+    finalScore.classList.add("hide");
+    startName.classList.remove("hide")
+    help.classList.remove("hide");  
+ })
+
+const questionSports = [
     { 
     question: '¿Quién fue el boxeador más joven de la historia en conseguir un título mundial de los pesos pesados?',
     answers:[
@@ -69,58 +98,68 @@ const question = [
         { text: 'Canelo Alvarez', correct: false},
         { text: 'Rocky', correct: false}
         ]
-    }       
+    },
+    {
+        question: '¿A quién se otorga el Balón de Oro?' ,
+        answers:[
+            {text: 'Al jugador con más goles', correct:false},
+            {text: 'Al mejor gol', correct: false},
+            {text: 'Al mejor equipo', correct: false},
+            {text: 'Al mejor jugador', correct: true}
+        ]      
+    }, {
+        question: '¿En qué equipo jugó Carles Puyol durante su carrera como futbolista?' ,
+        answers:[
+            {text: 'FC Barcelona', correct:true},
+            {text: 'Sao Paulo', correct: false},
+            {text: 'Real Madrid', correct: false},
+            {text: 'Villareal', correct: false}
+        ]      
+    }, {
+        question: '¿Qué jugador de fútbol ha ganado más copas del mundo?' ,
+        answers:[
+            {text: 'Maradona', correct:false},
+            {text: 'Manuel Never', correct: false},
+            {text: 'Pele', correct: true},
+            {text: 'Thomas Muller', correct: false}
+        ]      
+    }
 ]
-/*
-AnswersSportsFirst.Correct = 'Mike Tyson'
-AnswersSportsFirst.Wrong = 'Canelo Alvarez'
-AnswersSportsFirst.Wrong = 'Rocky'*/
-//Segunda pregunta
-let AnswersSportsSecond = new Object()
-AnswersSportsSecond.Correct = 'FC Barcelona'
-AnswersSportsSecond.Wrong = 'Sao Paulo'
-AnswersSportsSecond.Wrong = 'Real Madrid'
-AnswersSportsSecond.Wrong = 'Villareal'
-//Tercera pregunta
-let AnswersSportsThird = new Object()
-AnswersSportsSecond.Wrong1 = 'Maradona'
-AnswersSportsSecond.Wrong2 = 'Manuel Never'
-AnswersSportsSecond.Correct = 'Pele'
-AnswersSportsSecond.Wrong3 = 'Thomas Muller'
-//Cuarta pregunta
-let AnswersSportsFourth = new Object()
-AnswersSportsSecond.Wrong1 = 'Al jugador con más goles'
-AnswersSportsSecond.Wrong2 = 'Al mejor gol'
-AnswersSportsSecond.Wrong3 = 'Al mejor equipo'
-AnswersSportsSecond.Correct = 'Al mejor jugador'
 
-//Preguntas para categoria Peliculas
-let QuestionsMovies = new Object();
-QuestionsMovies.First = '¿Cuál es la película más taquillera de la historia?';
-QuestionsMovies.Second = '¿Cuántas películas conforman la saga cinematográfica Harry Potter?';
-QuestionsMovies.Third = '¿Qué actor da vida a Batman de Christopher Nolan? ';
-QuestionsMovies.Four = '¿Por qué película ganó Leonardo DiCaprio su primer Óscar? ';
-//Primera pregunta
-let AnswersMoviesFirst = new Object();
-AnswersMoviesFirst.Correct = 'Avengers: EndGame'
-AnswersMoviesFirst.Wrong1 = 'Avatar'
-AnswersMoviesFirst.Wrong2 = 'Titanic'
-AnswersMoviesFirst.Wrong3 = 'Avengers: Infinity War'
-//Segunda pregunta
-let AnswersMoviesSecond = new Object()
-AnswersMoviesSecond.Wrong2 = '3'
-AnswersMoviesSecond.Wrong1 = '5'
-AnswersMoviesSecond.Correct = '8'
-AnswersMoviesSecond.Wrong3 = '4'
-//Tercera pregunta
-let AnswersMoviesThird = new Object()
-AnswersMoviesSecond.Wrong1 = 'Leonardo DiCaprio'
-AnswersMoviesSecond.Correct = 'Chris Bale'
-AnswersMoviesSecond.Wrong2 = 'Morgan Freeman'
-AnswersMoviesSecond.Wrong3 = 'Henry Cavil'
-//Cuarta pregunta
-let AnswersMoviesFourth = new Object()
-AnswersMoviesSecond.Wrong1 = 'Titanic'
-AnswersMoviesSecond.Wrong2 = 'El lobo de Wall Street'
-AnswersMoviesSecond.Wrong3 = 'El hombre de la mascara'
-AnswersMoviesSecond.Correct = 'El renacido'
+
+const questionMovies = [
+    { 
+    question: '¿Cuál es la película más taquillera de la historia?',
+    answers:[
+        { text: 'Avatar', correct: false },
+        { text: 'Avengers: EndGame', correct: true},
+        { text: 'Titanic', correct: false},
+        { text: 'Avengers: Infinity War', correct: false}
+        ]
+    },
+    {
+        question: '¿Cuántas películas conforman la saga cinematográfica Harry Potter?' ,
+        answers:[
+            {text: '3', correct:false},
+            {text: '5', correct: false},
+            {text: '7', correct: false},
+            {text: '8', correct: true}
+        ]      
+    }, {
+        question: '¿Qué actor da vida a Batman de Christopher Nolan? ' ,
+        answers:[
+            {text: 'Chris Bale', correct:true},
+            {text: 'Leonardo DiCaprio', correct: false},
+            {text: 'Morgan Freeman', correct: false},
+            {text: 'Henry Cavil', correct: false}
+        ]      
+    }, {
+        question: '¿Por qué película ganó Leonardo DiCaprio su primer Óscar? ' ,
+        answers:[
+            {text: 'Titanic', correct:false},
+            {text: 'El lobo de Wall Street', correct: false},
+            {text: 'El hombre de la mascara', correct: true},
+            {text: 'El renacido', correct: false}
+        ]    
+    }
+]
