@@ -1,14 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-image: url(../img/image.jpg);
 }
 
-h1{
+h1 {
     margin-top: 50px;
     font-size: 70px;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,12 +16,12 @@ h1{
     color: white;
 }
 
-.container{
+.container {
     height: 100%;
     width: 100%;
 }
 
-.start-name{
+.start-name {
     text-align: justify;
     margin: auto;
     display: flex;
@@ -32,7 +32,7 @@ h1{
     width: 80%;
 }
 
-.help{
+.help {
     margin: auto;
     height: 50%;
     width: 50%;
@@ -42,15 +42,16 @@ h1{
     color: white;
 }
 
-.text{
-    margin-top:20px;
+.text {
+    margin-top: 20px;
     margin-bottom: 25px;
     font-size: 35px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: rgba(22, 219, 170, 0.575);
 }
-.name{
+
+.name {
     margin: auto;
     width: 55%;
     height: 60px;
@@ -59,7 +60,8 @@ h1{
     text-align: center;
     font-size: 40px;
 }
-.button-name{
+
+.button-name {
     margin: auto;
     width: 130px;
     height: 50px;
@@ -72,14 +74,14 @@ h1{
 }
 
 
-.center{
+.center {
     display: flex;
     flex-direction: column;
     justify-items: center;
     justify-content: center;
 }
 
-.categories{
+.categories {
     width: 100%;
     height: 100%;
     display: flex;
@@ -87,19 +89,21 @@ h1{
     justify-items: center;
     justify-content: center;
 }
-.categories-text{
+
+.categories-text {
     color: rgb(255, 255, 255);
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     font-size: 30px;
     padding-bottom: 50px;
 }
-.images:hover{
+
+.images:hover {
     filter: brightness(120%);
-    transition:all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-img{
+img {
     display: flex;
     margin: auto;
     flex-direction: column;
@@ -107,11 +111,11 @@ img{
     width: 40%;
 }
 
-.images{
+.images {
     cursor: pointer;
 }
 
-.questions{
+.questions {
     padding-top: 60px;
     text-align: justify;
     margin: auto;
@@ -125,7 +129,7 @@ img{
     padding-bottom: 40px;
 }
 
-.body-question{
+.body-question {
     padding-top: 40px;
     text-align: center;
     margin: auto;
@@ -135,52 +139,39 @@ img{
     justify-content: center;
     height: 80%;
     width: 80%;
-    background-image:url(../img/image.jpg);
+    background-image: url(../img/image.jpg);
     background-color: rgb(0, 0, 0);
     color: white;
 }
-.question{
+
+.question {
     font-size: 20px;
 }
-.button-answers{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    cursor: pointer;
-    margin: auto;
-    color: white;
-    width: 100px;
-    font-size: 20px;
-    text-align: center;
-    border-color: black;
-    background-color: black;
-}
-.button-answers:hover{
-    color: rgb(95, 42, 165);
-    transition: all 1s;
-}
-.answers{
+
+.answers {
     padding-top: 15px;
     text-align: center;
     margin: auto;
     margin-top: 30px;
     height: 80%;
     width: 80%;
-    background-image:url(../img/image.jpg);
+    background-image: url(../img/image.jpg);
     font-size: 50px;
     margin-bottom: 30px;
     line-height: 70px;
     cursor: pointer;
 }
 
-.answer{
+.answer {
     font-size: 30px;
 }
-.answer:hover{
+
+.answer:hover {
     color: rgba(255, 255, 0, 0.616);
-    transition: all 0,5s;
+    transition: all 0, 5s;
 }
 
-.final-points{
+.final-points {
     display: flex;
     margin: auto;
     flex-direction: column;
@@ -188,21 +179,24 @@ img{
     width: 60%;
     background-image: url(../img/image.jpg);
 }
-.points{
+
+.points {
     display: flex;
     margin: auto;
     flex-direction: column;
     height: 100%;
     width: 100%;
 }
-.number-point{
+
+.number-point {
     font-size: 40px;
     color: rgb(255, 251, 251);
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 50px;
 }
-.name-point{
+
+.name-point {
     margin-top: 80px;
     font-size: 40px;
     color: rgb(255, 255, 255);
@@ -211,11 +205,11 @@ img{
     margin-bottom: 50px;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.return{
+.return {
     margin: auto;
     color: white;
     font-size: 30px;

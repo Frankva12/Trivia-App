@@ -8,12 +8,11 @@ const questions = document.querySelector(".questions")
 const questionTitle = document.querySelector(".question")
 const answers = document.querySelector(".answers")
 const imageCategories = document.querySelectorAll(".images")
-const next = document.querySelector(".button-answers")
 const point = document.querySelector(".number-point")
 const namePoint = document.querySelector(".name-point")
 const finalScore = document.querySelector(".final-points")
 const Back = document.querySelector(".return")
-console.log(textName);
+
 let nombreUsuario;
 buttonName.addEventListener("click" ,function(){
     if (textName.value == '') {
@@ -32,7 +31,7 @@ buttonName.addEventListener("click" ,function(){
  }
 
  imageCategories[0].addEventListener("click", function(){
-            ShowQuestions(1,0);
+    ShowQuestions(1,0);
  })
  imageCategories[1].addEventListener("click", function(){
     ShowQuestions(2,0);
@@ -76,7 +75,7 @@ buttonName.addEventListener("click" ,function(){
             questions.classList.add("hide");
             finalScore.classList.remove("hide");
             namePoint.innerHTML = "!Felicidades! <br>"
-            point.innerHTML = nombreUsuario + " obtuviste una puntuación de " + puntaje + " espero te allas divertido. :)";
+            point.innerHTML = nombreUsuario + " obtuviste una puntuación de " + puntaje + " espero te hayas divertido. :)";
             index = 0;
             puntaje = 0;
             nombreUsuario = "";
