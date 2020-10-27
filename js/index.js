@@ -84,7 +84,7 @@ function ShowQuestions(categorie, i) {
         let container = "";
         questionTitle.innerText = questionMovies[i].question;
         respuestasRandom = shuffle(questionMovies[i].answers)
-        respuestas.forEach(respuesta => {
+        respuestasRandom.forEach(respuesta => {
             container += `
             <p class="answer" onclick="CountPoints(${categorie}, ${respuesta.correct}, ${i})"> ${respuesta.text}</p>`
         });
@@ -121,7 +121,7 @@ function CountPoints(categorie, respuesta, index) {
         //reseteamos los contadores
         index = 0;
         puntaje = 0;
-        UserName = "";
+        textName.value = "";
     }
 }
 //boton de regreso para regresar al principio
