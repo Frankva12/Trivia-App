@@ -14,8 +14,8 @@ const namePoint = document.querySelector(".name-point")
 const finalScore = document.querySelector(".final-points")
 const back = document.querySelector(".return")
 const error = document.querySelector(".error")
-const small = document.querySelector("small");
-const welcome = document.querySelector(".welcome");
+const small = document.querySelector("small")
+const welcome = document.querySelector(".welcome")
 const welcomeText = document.querySelector(".welcome-text")
 const buttonWelcome = document.querySelector(".button-welcome")
 
@@ -124,6 +124,7 @@ function CountPoints(categorie, respuesta, index) {
         textName.value = "";
     }
 }
+
 //boton de regreso para regresar al principio
 back.addEventListener("click", function () {
     finalScore.classList.add("hide");
